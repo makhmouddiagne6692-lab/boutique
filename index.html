@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Diagne Global Business — boutique virtuelle. Découvrez nos produits, composez votre panier et confirmez votre commande sur WhatsApp.">
+  <title>Diagne Global Business | Boutique virtuelle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#accueil" aria-label="Diagne Global Business - accueil">
+        <img src="logo/logo.png" alt="Logo Diagne Global Business">
+        <span>DIAGNE <strong>GLOBAL BUSINESS</strong></span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cart-button" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
+        🛒 <span>Panier</span> <b id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">BIENVENUE CHEZ DIAGNE GLOBAL BUSINESS</span>
+          <h1>Votre boutique virtuelle, <span>simple et pratique.</span></h1>
+          <p>Découvrez nos produits, choisissez vos tailles et volumes, ajoutez plusieurs articles au panier et confirmez facilement votre commande sur WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#catalogue">Découvrir les produits</a>
+            <a class="btn btn-light" href="#apropos">En savoir plus</a>
+          </div>
+          <div class="hero-points">
+            <span>✓ Commande simple</span><span>✓ Plusieurs articles</span><span>✓ Confirmation WhatsApp</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="logo/logo.png" alt="Diagne Global Business">
+          <div><strong>DIAGNE GLOBAL BUSINESS</strong><small>Boutique virtuelle</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div><span>🛍️</span><strong>Catalogue</strong><small>Produits et variantes</small></div>
+        <div><span>🛒</span><strong>Panier</strong><small>Ajoutez plusieurs articles</small></div>
+        <div><span>📱</span><strong>WhatsApp</strong><small>Confirmation rapide</small></div>
+        <div><span>💳</span><strong>Paiement</strong><small>Wave ou Orange Money</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="catalogue">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="eyebrow">NOTRE CATALOGUE</span><h2>Découvrez nos produits</h2><p>Choisissez les options disponibles avant d'ajouter un article au panier.</p></div>
+          <div class="catalog-tools">
+            <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Rechercher un produit..." aria-label="Rechercher un produit"></label>
+            <select id="categoryFilter" aria-label="Filtrer par catégorie"><option value="all">Toutes les catégories</option></select>
+          </div>
+        </div>
+        <div id="productsGrid" class="products-grid"></div>
+        <p id="emptyProducts" class="empty-state hidden">Aucun produit ne correspond à votre recherche.</p>
+      </div>
+    </section>
+
+    <section class="section soft" id="apropos">
+      <div class="container about-grid">
+        <div><span class="eyebrow">À PROPOS</span><h2>Diagne Global Business</h2><p>Diagne Global Business est une boutique virtuelle créée et gérée par un étudiant. Notre objectif est de proposer une expérience de commande claire, accessible et pratique.</p><p>Après avoir composé votre panier, vous devez confirmer votre commande sur WhatsApp afin que nous puissions la traiter.</p></div>
+        <div class="notice"><h3>📢 Important</h3><p><strong>La commande doit être confirmée sur WhatsApp.</strong></p><p>Contact : <a href="https://wa.me/221710519711" target="_blank" rel="noopener">71 051 97 11</a></p><p>Les modalités de paiement par <strong>Wave ou Orange Money</strong> sont communiquées lors de la confirmation de la commande.</p></div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card">
+        <div><span class="eyebrow">CONTACT</span><h2>Besoin d'une information ?</h2><p>Pour confirmer une commande ou obtenir les modalités de paiement, contactez Diagne Global Business sur WhatsApp.</p></div>
+        <a class="btn btn-green" href="https://wa.me/221710519711" target="_blank" rel="noopener">💬 Contacter sur WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><strong>DIAGNE GLOBAL BUSINESS</strong><p>Boutique virtuelle — commande et confirmation sur WhatsApp.</p></div><div><p>WhatsApp : <a href="https://wa.me/221710519711" target="_blank" rel="noopener">71 051 97 11</a></p><p>Wave • Orange Money</p><p><a href="admin.html" rel="nofollow">Espace admin</a></p></div></div><div class="container copyright">© <span id="year"></span> Diagne Global Business. Tous droits réservés.</div></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Panier" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">VOTRE SÉLECTION</span><h2>Mon panier</h2></div><button id="closeCartBtn" class="icon-btn" type="button" aria-label="Fermer">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-empty" id="cartEmpty"><div>🛒</div><h3>Votre panier est vide</h3><p>Ajoutez des produits pour préparer votre commande.</p></div>
+    <div class="cart-footer"><div class="total-row"><span>Total</span><strong id="cartTotal">0 FCFA</strong></div><button class="btn btn-green full" id="checkoutBtn" type="button">Passer la commande</button><button class="btn btn-outline full" id="clearCartBtn" type="button">Vider le panier</button></div>
+  </aside>
+
+  <div class="modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-card">
+      <button id="closeModalBtn" class="icon-btn modal-close" type="button" aria-label="Fermer">×</button>
+      <span class="eyebrow">DERNIÈRE ÉTAPE</span><h2 id="checkoutTitle">Vos informations</h2><p class="muted">Remplissez le formulaire. Votre commande sera préparée pour WhatsApp.</p>
+      <form id="checkoutForm" novalidate>
+        <div class="form-grid"><label>Nom *<input id="lastName" required></label><label>Prénom *<input id="firstName" required></label></div>
+        <label>Téléphone *<input id="phone" type="tel" inputmode="tel" placeholder="77 000 00 00" required></label>
+        <label>Lieu de livraison *<input id="deliveryPlace" placeholder="Ex. Dakar, Parcelles Assainies" required></label>
+        <label>Adresse / précision de livraison<textarea id="address" rows="3" placeholder="Quartier, point de repère, etc."></textarea></label>
+        <div class="form-error" id="formError" role="alert"></div>
+        <button class="btn btn-green full" type="submit">💬 Valider ma commande sur WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="produits.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

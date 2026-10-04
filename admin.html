@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administration | Diagne Global Business</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><img src="logo/logo.png" alt="Logo"><span>DIAGNE <strong>GLOBAL BUSINESS</strong></span></a>
+      <nav class="nav"><a href="index.html">← Retour au site</a></nav>
+      <button class="btn btn-outline hidden" id="logoutBtn" type="button">Se déconnecter</button>
+    </div>
+  </header>
+
+  <!-- CONNEXION -->
+  <main class="container login-wrap" id="loginView">
+    <div class="login-card">
+      <span class="eyebrow">ESPACE ADMINISTRATEUR</span>
+      <h1>Connexion</h1>
+      <p class="muted">Entrez le mot de passe pour ajouter des produits au catalogue.</p>
+      <form id="loginForm" novalidate>
+        <label>Mot de passe<input id="password" type="password" autocomplete="current-password" required></label>
+        <div class="form-error" id="loginError" role="alert"></div>
+        <button class="btn btn-blue full" type="submit">🔐 Se connecter</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- TABLEAU DE BORD -->
+  <main class="container admin-grid hidden" id="adminView">
+    <section class="admin-card">
+      <span class="eyebrow">NOUVEAU PRODUIT</span>
+      <h2>Ajouter un produit</h2>
+      <form id="productForm" novalidate>
+        <label>Nom du produit *<input id="pNom" required></label>
+        <div class="form-grid">
+          <label>Catégorie *<input id="pCategorie" list="catList" placeholder="Parfums, Vêtements..." required></label>
+          <label>Prix (FCFA) *<input id="pPrix" type="number" min="0" step="100" required></label>
+        </div>
+        <datalist id="catList"></datalist>
+        <label>Description<textarea id="pDescription" rows="3"></textarea></label>
+        <label>Volumes <small>(séparés par des virgules : 30 ml, 50 ml)</small><input id="pVolumes"></label>
+        <label>Tailles <small>(S, M, L, XL)</small><input id="pTailles"></label>
+        <label>Couleurs <small>(Blanc, Noir, Bleu)</small><input id="pCouleurs"></label>
+        <div class="form-grid">
+          <label>Badge<input id="pBadge" placeholder="Nouveau, Populaire..." value="Nouveau"></label>
+          <label>Photo<input id="pImage" type="file" accept="image/*"></label>
+        </div>
+        <img id="imgPreview" class="img-preview hidden" alt="Aperçu de la photo">
+        <div class="form-error" id="productError" role="alert"></div>
+        <button class="btn btn-green full" type="submit">➕ Ajouter au catalogue</button>
+      </form>
+    </section>
+
+    <section class="admin-card">
+      <span class="eyebrow">CATALOGUE</span>
+      <h2>Produits <small id="countLabel"></small></h2>
+      <div id="adminList" class="admin-list"></div>
+      <div class="admin-note">
+        <strong>Important :</strong> les produits ajoutés ici sont enregistrés dans <u>ce navigateur</u> uniquement.
+        Pour les publier pour tous les clients, cliquez sur « Exporter produits.js » et remplacez le fichier <code>produits.js</code> du site.
+      </div>
+      <div class="admin-actions">
+        <button class="btn btn-blue" id="exportBtn" type="button">⬇️ Exporter produits.js</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="produits.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
