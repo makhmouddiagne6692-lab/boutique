@@ -5,22 +5,6 @@
 */
 const produits = [
   {
-    "id": 6,
-    "nom": "Produit Exemple",
-    "categorie": "Divers",
-    "prix": 8000,
-    "description": "Produit exemple à remplacer par votre prochain article.",
-    "volumes": [
-      "Standard"
-    ],
-    "tailles": [
-      "Unique"
-    ],
-    "couleurs": [],
-    "image": "",
-    "badge": "Disponible"
-  },
-  {
     "id": 7,
     "nom": "vanilla voyage",
     "categorie": "Parfums",
